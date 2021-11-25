@@ -3,8 +3,8 @@
 #include <stdlib.h>
 
 #include "my.h"
-#include "my_printf.h"
 #include "tools.h"
+#include "my_printf.h"
 
 int	main()
 {
@@ -20,9 +20,15 @@ int	main()
 	// short int nb = 10;
 	// my_putstr(my_itoa_(nb));
 
-	short int n = 5;
+	const char *str1 = "test%dtest";
+	const char *str2 = "test%+15.2stest";
+	const char *str5 = "test%lldtest";
 
-	printf("%ld\n", (long int)n);
+	my_printf(str1);
+	printf("\n");
+	my_printf(str2);
+	printf("\n");
+	my_printf(str5);
 
 	return (0);
 }

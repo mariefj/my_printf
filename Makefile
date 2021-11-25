@@ -1,6 +1,7 @@
 NAME	=	printf
 
 SRCS	=	src/main.c			\
+		src/my_printf.c			\
 		src/tools.c
 
 
