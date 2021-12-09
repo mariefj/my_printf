@@ -33,6 +33,7 @@ int	my_showstr(char const *str);
 int	my_showmem(char const *str, int size);
 int	my_showaddr(char const *str);
 int	my_putnbr_base(int nbr, char const *base);
+int	my_putnbr_base_unsigned(unsigned int nbr, char const *base);
 char	*my_strcat(char *dest, char const *src);
 char	*my_strncat(char *dest, char const *src, int nb);
 char	*my_strdup(char const *str);
@@ -43,5 +44,6 @@ int	is_digit(char digit);
 char	*my_append_c(char *str, char c);
 int	my_tab_size(const char **array);
 void	free_str_tab(char **array);
+int	my_putstr_non_printable(char const *str);
 
 #endif

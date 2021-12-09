@@ -1,7 +1,7 @@
 #ifndef TOOLS_H
 #define TOOLS_H
 
-#define CONVERSION_NB 10
+#define CONVERSION_NB 12
 
 #include <stdbool.h>
 #include <stdarg.h>

@@ -20,10 +20,11 @@ int	main()
 	// short int nb = 10;
 	// my_putstr(my_itoa_(nb));
 
-	const char *str1 = "%% test %s test";
-	char *str = "hello";
+	const char *str1 = "%% test %o test %x et %X et %b test str : %S";
+	unsigned int nb = 30;
+	char *str = "hello \n world";
 
-	my_printf(str1, str);
+	my_printf(str1, nb, nb, nb, nb, str);
 	printf("\n");
 
 	return (0);

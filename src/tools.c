@@ -122,35 +122,40 @@ my_struct_spec_t *spec_init()
 void 	set_up_struct_conversion(my_struct_func_ptr_conversion_t *conversions)
 {
 	conversions[0].conversion_tag = 'd';
-	conversions[0].conversion_func = &my_put_nbr_ptr;
+	conversions[0].conversion_func = &my_put_nbr_va;
 
 	conversions[1].conversion_tag = 'i';
-	conversions[1].conversion_func = &my_put_nbr_ptr;
+	conversions[1].conversion_func = &my_put_nbr_va;
 
 	conversions[2].conversion_tag = 'o';
-	conversions[2].conversion_func = &my_putnbr_base_ptr;
+	conversions[2].conversion_func = &my_putnbr_base_octal_va;
 
 	conversions[3].conversion_tag = 'u';
-	conversions[3].conversion_func = &my_putnbr_base_ptr;
+	conversions[3].conversion_func = &my_putnbr_base_decimal_va;
 
 	conversions[4].conversion_tag = 'x';
-	conversions[4].conversion_func = &my_putnbr_base_ptr;
+	conversions[4].conversion_func = &my_putnbr_base_hexa_lower_va;
 
 	conversions[5].conversion_tag = 'X';
-	conversions[5].conversion_func = &my_putnbr_base_ptr;
+	conversions[5].conversion_func = &my_putnbr_base_hexa_upper_va;
 
 	conversions[6].conversion_tag = 'c';
-	conversions[6].conversion_func = &my_putchar_ptr;
+	conversions[6].conversion_func = &my_putchar_va;
 
 	conversions[7].conversion_tag = 's';
-	conversions[7].conversion_func = &my_putstr_ptr;
+	conversions[7].conversion_func = &my_putstr_va;
 
 	conversions[8].conversion_tag = 'p';
-	conversions[8].conversion_func = &my_put_nbr_ptr;
+	conversions[8].conversion_func = &my_put_nbr_va;
 
 	conversions[9].conversion_tag = 'm';
-	conversions[9].conversion_func = &my_put_strerror_ptr;
+	conversions[9].conversion_func = &my_put_strerror_va;
 
+	conversions[10].conversion_tag = 'b';
+	conversions[10].conversion_func = &my_putnbr_base_binary_va;
+
+	conversions[11].conversion_tag = 'S';
+	conversions[11].conversion_func = &my_putstr_non_printable_va;
 }
 
 int 	do_conversion(char conversion_flag, va_list va)

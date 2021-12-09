@@ -41,7 +41,9 @@ SRCS	=	my_compute_power_rec.c		\
 		my_append_c.c			\
 		my_tab_size.c			\
 		free_str_tab.c			\
-		my_putnbr_base.c
+		my_putnbr_base.c		\
+		my_putnbr_base_unsigned.c	\
+		my_putstr_non_printable.c
 
 
 OBJS	=	$(SRCS:.c=.o)
