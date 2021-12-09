@@ -122,40 +122,38 @@ my_struct_spec_t *spec_init()
 void 	set_up_struct_conversion(my_struct_func_ptr_conversion_t *conversions)
 {
 	conversions[0].conversion_tag = 'd';
-	conversions[0].conversion_func = &my_put_nbr;
+	conversions[0].conversion_func = &my_put_nbr_ptr;
 
 	conversions[1].conversion_tag = 'i';
-	conversions[1].conversion_func = &my_put_nbr;
+	conversions[1].conversion_func = &my_put_nbr_ptr;
 
 	conversions[2].conversion_tag = 'o';
-	conversions[2].conversion_func = &my_putnbr_base;
+	conversions[2].conversion_func = &my_putnbr_base_ptr;
 
 	conversions[3].conversion_tag = 'u';
-	conversions[3].conversion_func = &my_putnbr_base;
+	conversions[3].conversion_func = &my_putnbr_base_ptr;
 
 	conversions[4].conversion_tag = 'x';
-	conversions[4].conversion_func = &my_putnbr_base;
+	conversions[4].conversion_func = &my_putnbr_base_ptr;
 
 	conversions[5].conversion_tag = 'X';
-	conversions[5].conversion_func = &my_putnbr_base;
+	conversions[5].conversion_func = &my_putnbr_base_ptr;
 
 	conversions[6].conversion_tag = 'c';
-	conversions[6].conversion_func = &my_putchar;
+	conversions[6].conversion_func = &my_putchar_ptr;
 
 	conversions[7].conversion_tag = 's';
-	conversions[7].conversion_func = &my_putstr;
+	conversions[7].conversion_func = &my_putstr_ptr;
 
 	conversions[8].conversion_tag = 'p';
-	conversions[8].conversion_func = &my_put_nbr;
+	conversions[8].conversion_func = &my_put_nbr_ptr;
 
 	conversions[9].conversion_tag = 'm';
-	conversions[9].conversion_func = &my_put_strerror;
+	conversions[9].conversion_func = &my_put_strerror_ptr;
 
-	conversions[10].conversion_tag = '%';
-	conversions[10].conversion_func = &my_putchar;
 }
 
-int 	do_conversion(char conversion_flag, )
+int 	do_conversion(char conversion_flag, va_list va)
 {
 	my_struct_func_ptr_conversion_t	conversions[CONVERSION_NB];
 	int				i = 0;
@@ -163,8 +161,10 @@ int 	do_conversion(char conversion_flag, )
 	set_up_struct_conversion(conversions);
 	while (i != CONVERSION_NB)
 	{
-		if (conversions[i].conversion_tag == conversion_tag)
-			return (conversions[i].conversion_func());
+		if (conversions[i].conversion_tag == conversion_flag)
+			return (conversions[i].conversion_func(va));
 		i++;
 	}
+
+	return (0);
 }

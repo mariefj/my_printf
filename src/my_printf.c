@@ -5,6 +5,7 @@
 #include "my.h"
 #include "my_printf.h"
 #include "tools.h"
+#include "conversion_func.h"
 
 // int	print_int(va_list va, my_struct_spec_t *spec)
 // {
@@ -165,10 +166,12 @@ int	print_arg(va_list va, const char **spec_str)
 
 int	print_conversion(my_struct_spec_t *spec, va_list va)
 {
-	my_show_spec_struct(spec);
-	va++;
+	if (spec->conversion == '%')
+	{
+		return (my_putchar('%'));
+	}
 
-	return 0;
+	return (do_conversion(spec->conversion, va));
 }
 
 int	my_printf(const char *format, ...)

@@ -20,15 +20,11 @@ int	main()
 	// short int nb = 10;
 	// my_putstr(my_itoa_(nb));
 
-	const char *str1 = "test%dtest";
-	const char *str2 = "test%+15.2stest";
-	const char *str5 = "test%lldtest";
+	const char *str1 = "%% test %s test";
+	char *str = "hello";
 
-	my_printf(str1);
+	my_printf(str1, str);
 	printf("\n");
-	my_printf(str2);
-	printf("\n");
-	my_printf(str5);
 
 	return (0);
 }

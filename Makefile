@@ -2,6 +2,7 @@ NAME	=	printf
 
 SRCS	=	src/main.c			\
 		src/my_printf.c			\
+		src/conversion_func.c			\
 		src/tools.c
 
 
