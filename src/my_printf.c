@@ -96,7 +96,6 @@ int	set_double_letters_modifier(my_struct_spec_t *spec, const char *spec_str, ch
 	}
 
 	return 0;
-
 }
 
 int	set_modifier(my_struct_spec_t *spec, const char *spec_str)
