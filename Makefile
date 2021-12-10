@@ -2,8 +2,12 @@ NAME	=	printf
 
 SRCS	=	src/main.c			\
 		src/my_printf.c			\
-		src/conversion_func.c			\
-		src/tools.c
+		src/is_flag.c			\
+		src/set_flags.c			\
+		src/conversion_func.c		\
+		src/conversion_base_func.c	\
+		src/my_put_ptr_address_va.c	\
+		src/my_struct_spec.c
 
 
 OBJS	=	$(SRCS:.c=.o)

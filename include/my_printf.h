@@ -1,19 +1,11 @@
-#ifndef _MY_PRINTF_H
-#define _MY_PRINTF_H
+#ifndef _MY_PRINTF_H_
+#define _MY_PRINTF_H_
 
-#include "tools.h"
+#include "my_struct_spec.h"
 
-//int	my_printf(const char *format, ...);
-int	is_flag(char flag);
-int	set_flags(my_struct_spec_t *spec, char flag);
-int	set_width(my_struct_spec_t *spec, char digit);
-int	set_precision(my_struct_spec_t *spec, char digit);
-int	is_modifier(char modifier);
-int	set_double_letters_modifier(my_struct_spec_t *spec, const char *spec_str, char modifier);
-int	set_modifier(my_struct_spec_t *spec, const char *spec_str);
-int	is_conversion(char conversion);
 int	print_arg(va_list va, const char **spec_str);
-int	my_printf(const char *format, ...);
+int 	do_conversion(char conversion_flag, va_list va);
 int	print_conversion(my_struct_spec_t *spec, va_list va);
+int	my_printf(const char *format, ...);
 
-#endif // _MY_PRINTF_H
+#endif // _MY_PRINTF_H_

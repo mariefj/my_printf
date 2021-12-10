@@ -1,7 +1,7 @@
-#ifndef TOOLS_H
-#define TOOLS_H
+#ifndef _MY_STRUCT_SPEC_
+#define _MY_STRUCT_SPEC_
 
-#define CONVERSION_NB 12
+#define CONVERSION_NB 11
 
 #include <stdbool.h>
 #include <stdarg.h>
@@ -26,9 +26,11 @@ typedef struct	my_struct_func_ptr_conversion_s
 }		my_struct_func_ptr_conversion_t;
 
 void		set_up_struct_conversion(my_struct_func_ptr_conversion_t *ops);
-void		my_show_spec_struct(my_struct_spec_t *spec);
+void		set_up_struct_conversion_base(my_struct_func_ptr_conversion_t *ops);
 my_struct_spec_t *spec_init();
-int 		do_conversion(char conversion_flag, va_list va);
+
+
+// void		my_show_spec_struct(my_struct_spec_t *spec);
 
 // long long int	my_abs_(intmax_t nb);
 // int		my_get_digits_(intmax_t nb);
@@ -37,4 +39,4 @@ int 		do_conversion(char conversion_flag, va_list va);
 // char		*my_itoa_base_unsigned(unsigned int nbr, char const *base);
 
 
-#endif // TOOLS_H
+#endif // _MY_STRUCT_SPEC_

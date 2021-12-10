@@ -1,136 +1,15 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
+#include <errno.h>
+#include <string.h>
 
 #include "my.h"
 #include "my_printf.h"
-#include "tools.h"
-#include "conversion_func.h"
+#include "my_struct_spec.h"
+#include "is_flag.h"
+#include "set_flags.h"
 
-// int	print_int(va_list va, my_struct_spec_t *spec)
-// {
-// 	int nb = va_arg(va, int);
-// 	char *str = my_itoa(nb);
-
-// 	return (my_putstr(manage_str(str, spec)));
-// }
-
-
-int	is_flag(char flag)
-{
-	int i = 0;
-	const char *array_flag = "#0- +";
-	int nb_flag = my_strlen(array_flag);
-
-	while (i < nb_flag)
-	{
-		if (flag == array_flag[i])
-			return 1;
-		i++;
-	}
-
-	return 0;
-}
-
-int	set_flags(my_struct_spec_t *spec, char flag)
-{
-	if (flag == '#')
-		spec->prefix = 1;
-	if (flag == '0')
-		spec->zero = 1;
-	if (flag == '-')
-		spec->left_align = 1;
-	if (flag == ' ')
-		spec->space_before_number = 1;
-	if (flag == '+')
-		spec->sign = 1;
-
-	return 1;
-
-}
-
-int	set_width(my_struct_spec_t *spec, char digit)
-{
-	spec->width = my_append_c(spec->width, digit);
-
-	return 1;
-}
-
-int	set_precision(my_struct_spec_t *spec, char digit)
-{
-	spec->precision = my_append_c(spec->precision, digit);
-
-	return 1;
-}
-
-int	is_modifier(char modifier)
-{
-	int i = 0;
-	const char *array_modifier = "hlqjzt";
-	int nb_modifier = my_strlen(array_modifier);
-
-	while (i < nb_modifier)
-	{
-		if (modifier == array_modifier[i])
-			return 1;
-
-		i++;
-	}
-
-	return 0;
-}
-
-int	set_double_letters_modifier(my_struct_spec_t *spec, const char *spec_str, char modifier)
-{
-	if (*spec_str == modifier)
-	{
-		spec->modifier = my_append_c(spec->modifier, modifier);
-		spec_str = spec_str + 1;
-		if (*spec_str == modifier)
-		{
-			spec->modifier = my_append_c(spec->modifier, modifier);
-
-			return 2;
-		}
-
-		return 1;
-	}
-
-	return 0;
-}
-
-int	set_modifier(my_struct_spec_t *spec, const char *spec_str)
-{
-	int i = 0;
-
-	i = set_double_letters_modifier(spec, spec_str, 'h');
-	if (i == 0)
-		i = set_double_letters_modifier(spec, spec_str, 'l');
-	if (i == 0)
-	{
-		spec->modifier = my_append_c(spec->modifier, *spec_str);
-
-		return 1;
-	}
-
-	return i;
-}
-
-int	is_conversion(char conversion)
-{
-	int i = 0;
-	const char *array_conversion = "diouxXcspm%bS";
-	int nb_conversion = my_strlen(array_conversion);
-
-	while (i < nb_conversion)
-	{
-		if (conversion == array_conversion[i])
-			return 1;
-		i++;
-	}
-
-	return 0;
-}
 
 int	print_arg(va_list va, const char **spec_str)
 {
@@ -164,11 +43,32 @@ int	print_arg(va_list va, const char **spec_str)
 	return (nb_char_printed);
 }
 
+int 	do_conversion(char conversion_flag, va_list va)
+{
+	my_struct_func_ptr_conversion_t	conversions[CONVERSION_NB];
+	int				i = 0;
+
+	set_up_struct_conversion(conversions);
+	set_up_struct_conversion_base(conversions);
+	while (i != CONVERSION_NB)
+	{
+		if (conversions[i].conversion_tag == conversion_flag)
+			return (conversions[i].conversion_func(va));
+		i++;
+	}
+
+	return (0);
+}
+
 int	print_conversion(my_struct_spec_t *spec, va_list va)
 {
 	if (spec->conversion == '%')
 	{
 		return (my_putchar('%'));
+	}
+	if (spec->conversion == 'm')
+	{
+		return (my_putstr(strerror(errno)));
 	}
 
 	return (do_conversion(spec->conversion, va));

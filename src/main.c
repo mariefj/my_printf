@@ -3,8 +3,9 @@
 #include <stdlib.h>
 
 #include "my.h"
-#include "tools.h"
+#include "my_struct_spec.h"
 #include "my_printf.h"
+
 
 int	main()
 {
@@ -26,6 +27,14 @@ int	main()
 
 	my_printf(str1, nb, nb, nb, nb, str);
 	printf("\n");
+	printf("vraie adresse : %p", &nb);
+	printf("\n");
+	my_printf("test adresse  : %p", &nb);
+	printf("\n");
+
+	printf("%m");
+	printf("\n");
+	my_printf("test : %m");
 
 	return (0);
 }
