@@ -115,8 +115,37 @@ int	my_putstr_va(va_list va, my_struct_spec_t *spec)
 
 int	my_putchar_va(va_list va, my_struct_spec_t *spec)
 {
-	spec++;
-	return (my_putchar((char)va_arg(va, int)));
+	int i = 0;
+	int nb_char = 0;
+	char char_to_print = (char)va_arg(va, int);
+
+	if (spec->left_align)
+	{
+		nb_char += my_putchar(char_to_print);
+		if (spec->width != NULL)
+		{
+			while (i < my_getnbr(spec->width) - 1)
+			{
+				nb_char += my_putchar(' ');
+				i++;
+			}
+		}
+	}
+	else
+	{
+		if (spec->width != NULL)
+		{
+			while (i < my_getnbr(spec->width) - 1)
+			{
+				nb_char += my_putchar(' ');
+				i++;
+			}
+		}
+		nb_char += my_putchar(char_to_print);
+
+	}
+
+	return (nb_char);
 }
 
 int	my_putstr_non_printable_va(va_list va, my_struct_spec_t *spec)

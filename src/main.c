@@ -37,8 +37,8 @@ int	main()
 	// my_printf("test : %m");
 
 	// my_printf("%.s\n", "hello");
-	printf("%.s et %d\n", "hello", 2);
-	my_printf("%.s et %d", "hello", 2);
+	printf("%c et %d\n", 'h', 2);
+	my_printf("%c et %d", 'h', 2);
 
 
 	return (0);
