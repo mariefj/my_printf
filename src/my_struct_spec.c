@@ -19,6 +19,7 @@ my_struct_spec_t *spec_init()
 	spec->left_align = 0;
 	spec->space_before_number = 0;
 	spec->sign = 0;
+	spec->precision_point = 0;
 	spec->width = NULL;
 	spec->precision = NULL;
 	spec->modifier = NULL;
@@ -74,6 +75,7 @@ void 	set_up_struct_conversion_base(my_struct_func_ptr_conversion_t *conversions
 // 	printf("left_align = %d\n", spec->left_align);
 // 	printf("space_before_nb = %d\n", spec->space_before_number);
 // 	printf("sign = %d\n", spec->sign);
+// 	printf("precision_point = %d\n", spec->precision_point);
 // 	printf("width = %s\n", spec->width);
 // 	printf("precision = %s\n", spec->precision);
 // 	printf("modifier = %s\n", spec->modifier);

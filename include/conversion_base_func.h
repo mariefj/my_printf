@@ -3,10 +3,12 @@
 
 #include <stdarg.h>
 
-int	my_putnbr_base_octal_va(va_list va);
-int	my_putnbr_base_decimal_va(va_list va);
-int	my_putnbr_base_hexa_lower_va(va_list va);
-int	my_putnbr_base_hexa_upper_va(va_list va);
-int	my_putnbr_base_binary_va(va_list va);
+#include "my_struct_spec.h"
+
+int	my_putnbr_base_octal_va(va_list va, my_struct_spec_t *spec);
+int	my_putnbr_base_decimal_va(va_list va, my_struct_spec_t *spec);
+int	my_putnbr_base_hexa_lower_va(va_list va, my_struct_spec_t *spec);
+int	my_putnbr_base_hexa_upper_va(va_list va, my_struct_spec_t *spec);
+int	my_putnbr_base_binary_va(va_list va, my_struct_spec_t *spec);
 ;
 #endif // CONVERSION_FUNC_H

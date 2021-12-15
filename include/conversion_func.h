@@ -3,10 +3,12 @@
 
 #include <stdarg.h>
 
-int	my_put_nbr_va(va_list va);
-int	my_putstr_va(va_list va);
-int	my_putchar_va(va_list va);
-int	my_putstr_non_printable_va(va_list va);
+#include "my_struct_spec.h"
+
+int	my_put_nbr_va(va_list va, my_struct_spec_t *spec);
+int	my_putstr_va(va_list va, my_struct_spec_t *spec);
+int	my_putchar_va(va_list va, my_struct_spec_t *spec);
+int	my_putstr_non_printable_va(va_list va, my_struct_spec_t *spec);
 
 
 #endif // CONVERSION_FUNC_H

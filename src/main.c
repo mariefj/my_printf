@@ -21,20 +21,25 @@ int	main()
 	// short int nb = 10;
 	// my_putstr(my_itoa_(nb));
 
-	const char *str1 = "%% test %o test %x et %X et %b test str : %S";
-	unsigned int nb = 30;
-	char *str = "hello \n world";
+	// const char *str1 = "%% test %o test %x et %X et %b test str : %S";
+	// unsigned int nb = 30;
+	// char *str = "hello \n world";
 
-	my_printf(str1, nb, nb, nb, nb, str);
-	printf("\n");
-	printf("vraie adresse : %p", &nb);
-	printf("\n");
-	my_printf("test adresse  : %p", &nb);
-	printf("\n");
+	// my_printf(str1, nb, nb, nb, nb, str);
+	// printf("\n");
+	// printf("vraie adresse : %p", &nb);
+	// printf("\n");
+	// my_printf("test adresse  : %p", &nb);
+	// printf("\n");
 
-	printf("%m");
-	printf("\n");
-	my_printf("test : %m");
+	// printf("%m");
+	// printf("\n");
+	// my_printf("test : %m");
+
+	// my_printf("%.s\n", "hello");
+	printf("%.s et %d\n", "hello", 2);
+	my_printf("%.s et %d", "hello", 2);
+
 
 	return (0);
 }

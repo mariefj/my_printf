@@ -6,6 +6,8 @@
 #include <stdbool.h>
 #include <stdarg.h>
 
+#include "my_struct_spec.h"
+
 typedef struct	my_struct_spec_s
 {
 		bool	prefix;
@@ -13,6 +15,7 @@ typedef struct	my_struct_spec_s
 		bool	left_align;
 		bool	space_before_number;
 		bool	sign;
+		bool	precision_point;
 		char	*width;
 		char	*precision;
 		char	*modifier;
@@ -22,7 +25,7 @@ typedef struct	my_struct_spec_s
 typedef struct	my_struct_func_ptr_conversion_s
 {
 		char	conversion_tag;
-		int	(*conversion_func)(va_list va);
+		int	(*conversion_func)(va_list va, my_struct_spec_t *spec);
 }		my_struct_func_ptr_conversion_t;
 
 void		set_up_struct_conversion(my_struct_func_ptr_conversion_t *ops);

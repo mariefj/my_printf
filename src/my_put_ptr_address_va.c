@@ -4,6 +4,7 @@
 
 #include "my.h"
 #include "my_put_ptr_address_va.h"
+#include "my_struct_spec.h"
 
 static int	my_putnbr_hexa_addr(uintptr_t nbr)
 {
@@ -32,7 +33,8 @@ static	int	my_showaddr_ptr(void *ptr)
 	return (my_putnbr_hexa_addr(addr));
 }
 
-int	my_put_ptr_address_va(va_list va)
+int	my_put_ptr_address_va(va_list va, my_struct_spec_t *spec)
 {
+	spec++;
 	return (my_showaddr_ptr(va_arg(va, void *)));
 }
