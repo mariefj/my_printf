@@ -8,41 +8,170 @@
 
 int	main()
 {
-	// unsigned int nb = 122;
+	//*********************** TEST m ***********************//
+	//******************************************************//
 
-	// printf("%s\n", my_itoa_base_unsigned(nb, "0123456789abcdef"));
-	// my_putnbr_base(nb, "0123456789abcdef");
-
-	// int nb  = 122;
-	// my_putnbr_base(nb, "01234567");
-	// printf("%p", &nb);
-
-	// short int nb = 10;
-	// my_putstr(my_itoa_(nb));
-
-	// const char *str1 = "%% test %o test %x et %X et %b test str : %S";
-	// unsigned int nb = 30;
-	// char *str = "hello \n world";
-
-	// my_printf(str1, nb, nb, nb, nb, str);
-	// printf("\n");
-	// printf("vraie adresse : %p", &nb);
-	// printf("\n");
-	// my_printf("test adresse  : %p", &nb);
-	// printf("\n");
-
-	// printf("%m");
-	// printf("\n");
-	// my_printf("test : %m");
-
-	// my_printf("%.s\n", "hello");
-
-	// printf("%S et %d\n", str, 2);
-	printf("\n");
+	printf("TEST m\n");
 	my_printf("%-10.5m");
 	printf("\n");
 	printf("%-10.5m");
+	printf("\n");
+	my_printf("%m");
+	printf("\n");
+	printf("%m");
+	printf("\n");
 
+	//******************************************************//
+
+	//*********************** TEST c ***********************//
+	//******************************************************//
+
+	printf("TEST c\n");
+	my_printf("%5c", 'h');
+	printf("\n");
+	printf("%5c", 'h');
+	printf("\n");
+	my_printf("%c", 'h');
+	printf("\n");
+	printf("%c", 'h');
+	printf("\n");
+
+	//******************************************************//
+
+	//*********************** TEST s ***********************//
+	//******************************************************//
+
+	printf("TEST s\n");
+	my_printf("%.2s", "hello");
+	printf("\n");
+	printf("%.2s", "hello");
+	printf("\n");
+	my_printf("%10s", "hello");
+	printf("\n");
+	printf("%10s", "hello");
+	printf("\n");
+	my_printf("%-10.3s", "hello");
+	printf("\n");
+	printf("%-10.3s", "hello");
+	printf("\n");
+	my_printf("%s", "hello");
+	printf("\n");
+	printf("%s", "hello");
+	printf("\n");
+
+	//******************************************************//
+
+	//*********************** TEST S ***********************//
+	//******************************************************//
+
+	printf("TEST S\n");
+	my_printf("%.6S", "hello\e");
+	printf("\n");
+	// printf("%.6S", "hello\e");
+	printf("\n");
+	my_printf("%10S", "hello\e");
+	printf("\n");
+	// printf("%10S", "hello\e");
+	printf("\n");
+	my_printf("%-10.3S", "hello\e");
+	printf("\n");
+	// printf("%-10.3S", "hello\e");
+	printf("\n");
+	my_printf("%S", "hello\e");
+	printf("\n");
+	// printf("%S", "hello\e");
+	printf("\n");
+
+	//******************************************************//
+
+	//*********************** TEST D/I ***********************//
+	//******************************************************//
+
+	printf("TEST D\n");
+	my_printf("%05d", 20);
+	printf("\n");
+	printf("%05d", 20);
+	printf("\n");
+	my_printf("%+d", 20);
+	printf("\n");
+	printf("%+d", 20);
+	printf("\n");
+	my_printf("% d", 20);
+	printf("\n");
+	printf("% d", 20);
+	printf("\n");
+	my_printf("%10.4d", 20);
+	printf("\n");
+	printf("%10.4d", 20);
+	printf("\n");
+	my_printf("%d", 20);
+	printf("\n");
+	printf("%d", 20);
+	printf("\n");
+
+	//******************************************************//
+
+	//*********************** TEST O ***********************//
+	//******************************************************//
+
+	printf("TEST O\n");
+	my_printf("%05o", 20);
+	printf("\n");
+	printf("%05o", 20);
+	printf("\n");
+	my_printf("%#o", 20);
+	printf("\n");
+	printf("%#o", 20);
+	printf("\n");
+	my_printf("%+o", 20);
+	printf("\n");
+	printf("%+o", 20);
+	printf("\n");
+	my_printf("% o", 20);
+	printf("\n");
+	printf("% o", 20);
+	printf("\n");
+	my_printf("%10.4o", 20);
+	printf("\n");
+	printf("%10.4o", 20);
+	printf("\n");
+	my_printf("%o", 20);
+	printf("\n");
+	printf("%o", 20);
+	printf("\n");
+
+	//******************************************************//
+
+	//*********************** TEST X ***********************//
+	//******************************************************//
+
+	printf("TEST x\n");
+	my_printf("%05x", 20);
+	printf("\n");
+	printf("%05x", 20);
+	printf("\n");
+	my_printf("%#x", 20);
+	printf("\n");
+	printf("%#x", 20);
+	printf("\n");
+	my_printf("%+x", 20);
+	printf("\n");
+	printf("%+x", 20);
+	printf("\n");
+	my_printf("% x", 20);
+	printf("\n");
+	printf("% x", 20);
+	printf("\n");
+	my_printf("%10.4x", 20);
+	printf("\n");
+	printf("%10.4x", 20);
+	printf("\n");
+	my_printf("%x", 20);
+	printf("\n");
+	printf("%x", 20);
+	printf("\n");
+
+	//******************************************************//
 
 	return (0);
 }

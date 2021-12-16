@@ -191,18 +191,26 @@ int	my_putchar_va(va_list va, my_struct_spec_t *spec)
 	return (nb_char);
 }
 
-static	int	my_putchar_non_printable(char c)
+static	int	my_putchar_non_printable(char c, int limit_nb_char_printed)
 {
 	int nb_char = 0;
 
+	if (nb_char >= limit_nb_char_printed)
+			return (nb_char);
 	if (c < 31)
 	{
 		nb_char += my_putchar('\\');
+		if (nb_char >= limit_nb_char_printed)
+			return (nb_char);
 		nb_char += my_putnbr_base((int)c, "01234567");
+		if (nb_char >= limit_nb_char_printed)
+			return (nb_char);
 	}
 	else
 	{
 		nb_char += my_putchar(c);
+		if (nb_char >= limit_nb_char_printed)
+			return (nb_char);
 	}
 
 	return (nb_char);
@@ -279,7 +287,7 @@ int	my_putstr_non_printable_va(va_list va, my_struct_spec_t *spec)
 	{
 		while (nb_char_printed < precision)
 		{
-			nb_char += my_putchar_non_printable(str[i]);
+			nb_char += my_putchar_non_printable(str[i], precision - nb_char_printed);
 			nb_char_printed = nb_char;
 			i++;
 		}
@@ -302,7 +310,7 @@ int	my_putstr_non_printable_va(va_list va, my_struct_spec_t *spec)
 		}
 		while (nb_char_printed < precision)
 		{
-			nb_char_printed += my_putchar_non_printable(str[i]);
+			nb_char_printed += my_putchar_non_printable(str[i], precision - nb_char_printed);
 			i++;
 		}
 		nb_char += nb_char_printed;
