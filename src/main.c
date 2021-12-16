@@ -6,7 +6,6 @@
 #include "my_struct_spec.h"
 #include "my_printf.h"
 
-
 int	main()
 {
 	// unsigned int nb = 122;
@@ -37,8 +36,12 @@ int	main()
 	// my_printf("test : %m");
 
 	// my_printf("%.s\n", "hello");
-	printf("%c et %d\n", 'h', 2);
-	my_printf("%c et %d", 'h', 2);
+
+	// printf("%S et %d\n", str, 2);
+	printf("\n");
+	my_printf("%-10.8s", "hellohello");
+	printf("\n");
+	printf("%-10.8s", "hellohello");
 
 
 	return (0);
