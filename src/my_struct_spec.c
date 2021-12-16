@@ -65,6 +65,9 @@ void 	set_up_struct_conversion_base(my_struct_func_ptr_conversion_t *conversions
 
 	conversions[10].conversion_tag = 'b';
 	conversions[10].conversion_func = &my_putnbr_base_binary_va;
+
+	conversions[11].conversion_tag = 'm';
+	conversions[11].conversion_func = &my_putstrerror_va;
 }
 
 

@@ -1,7 +1,6 @@
 #include <stdarg.h>
 #include <stdlib.h>
 #include <stdio.h>
-#include <errno.h>
 #include <string.h>
 
 #include "my.h"
@@ -93,10 +92,6 @@ int	print_conversion(my_struct_spec_t *spec, va_list va)
 	if (spec->conversion == '%')
 	{
 		return (my_putchar('%'));
-	}
-	if (spec->conversion == 'm')
-	{
-		return (my_putstr(strerror(errno)));
 	}
 
 	return (do_conversion(spec, va));

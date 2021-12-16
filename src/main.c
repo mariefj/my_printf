@@ -39,9 +39,9 @@ int	main()
 
 	// printf("%S et %d\n", str, 2);
 	printf("\n");
-	my_printf("%-10.8s", "hellohello");
+	my_printf("%-10.5m");
 	printf("\n");
-	printf("%-10.8s", "hellohello");
+	printf("%-10.5m");
 
 
 	return (0);

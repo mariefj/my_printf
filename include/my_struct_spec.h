@@ -1,7 +1,7 @@
 #ifndef _MY_STRUCT_SPEC_
 #define _MY_STRUCT_SPEC_
 
-#define CONVERSION_NB 11
+#define CONVERSION_NB 12
 
 #include <stdbool.h>
 #include <stdarg.h>

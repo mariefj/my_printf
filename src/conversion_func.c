@@ -1,6 +1,8 @@
 #include <stdio.h>
 #include <stdarg.h>
 #include <stdint.h>
+#include <errno.h>
+#include <string.h>
 
 #include "my.h"
 #include "conversion_func.h"
@@ -43,6 +45,71 @@ int	my_putstr_va(va_list va, my_struct_spec_t *spec)
 	char *str = my_strdup(va_arg(va, char *));
 	int precision = 0;
 
+	if (spec->precision_point && spec->precision == NULL)
+	{
+		if (spec->width != NULL)
+		{
+			while (nb_char < my_getnbr(spec->width))
+			{
+				nb_char += my_putchar(' ');
+			}
+		}
+
+		return (nb_char);
+	}
+	if (spec->precision != NULL)
+	{
+		precision = my_getnbr(spec->precision);
+	}
+	else
+	{
+		precision = my_strlen(str);
+	}
+	if (spec->left_align)
+	{
+		while (i < precision)
+		{
+			nb_char += my_putchar(str[i]);
+			nb_char_printed = nb_char;
+			i++;
+		}
+		if (spec->width != NULL)
+		{
+			while (nb_char < my_getnbr(spec->width) - (precision - nb_char_printed))
+			{
+				nb_char += my_putchar(' ');
+			}
+		}
+	}
+	else
+	{
+		if (spec->width != NULL)
+		{
+			while (nb_char < my_getnbr(spec->width) - precision)
+			{
+				nb_char += my_putchar(' ');
+			}
+		}
+		while (i < precision)
+		{
+			nb_char += my_putchar(str[i]);
+			i++;
+		}
+	}
+
+	return (nb_char);
+}
+
+int	my_putstrerror_va(va_list va, my_struct_spec_t *spec)
+{
+	va_list va_cpy;
+	int i = 0;
+	int nb_char = 0;
+	int nb_char_printed = 0;
+	char *str = strerror(errno);
+	int precision = 0;
+
+	va_copy(va, va_cpy);
 	if (spec->precision_point && spec->precision == NULL)
 	{
 		if (spec->width != NULL)
